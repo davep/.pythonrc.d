@@ -1,5 +1,5 @@
 # .pythonrc.d
 
-My Python REPL strtup file.
+My Python REPL startup file.
 
 [//]: # (README.md ends here)
