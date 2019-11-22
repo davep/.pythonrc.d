@@ -1,0 +1,26 @@
+# -*- python -*-
+"""Python REPL startup file."""
+
+##############################################################################
+# Python imports.
+import os
+import sys
+import atexit
+import readline
+
+##############################################################################
+# Get history going when in Python 3+ and inside a virtual environment.
+if sys.version_info >= ( 3, 0 ) and hasattr( sys, "real_prefix" ):
+
+    # Ensure python knows where to save the history.
+    PYTHON_HISTORY_FILE = os.path.join( os.environ[ "HOME" ], ".python_history" )
+
+    # If there is a history file to be had...
+    if os.path.exists( PYTHON_HISTORY_FILE ):
+        # ...read it in.
+        readline.read_history_file( PYTHON_HISTORY_FILE )
+
+    # Write the history at exit.
+    atexit.register( readline.write_history_file, PYTHON_HISTORY_FILE )
+
+### pythonrc ends here
