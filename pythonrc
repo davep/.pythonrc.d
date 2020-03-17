@@ -10,7 +10,7 @@ import readline
 
 ##############################################################################
 # Get history going when in Python 3+ and inside a virtual environment.
-if sys.version_info >= ( 3, 0 ) and hasattr( sys, "real_prefix" ):
+if sys.version_info >= ( 3, 0 ) and os.getenv( "VIRTUAL_ENV" ):
 
     # Ensure python knows where to save the history.
     PYTHON_HISTORY_FILE = os.path.join( os.environ[ "HOME" ], ".python_history" )
