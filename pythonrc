@@ -6,7 +6,18 @@
 import os
 import sys
 import atexit
+import logging
 import readline
+
+##############################################################################
+# Utility function to turn on all logging.
+def davep_log_all():
+    """Set up the REPL to log everything down to DEBUG level."""
+    log = logging.getLogger()
+    log.setLevel( logging.DEBUG )
+    stream = logging.StreamHandler( sys.stdout )
+    stream.setLevel( logging.DEBUG )
+    log.addHandler( stream )
 
 ##############################################################################
 # Get history going when in Python 3+ and inside a virtual environment.
