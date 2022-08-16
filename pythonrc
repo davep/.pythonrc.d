@@ -9,6 +9,15 @@ import atexit
 import logging
 import readline
 
+try:
+    # If rich is in the current venv/whatever...
+    from rich import pretty
+    # ...install its pretty printer.
+    pretty.install()
+except ModuleNotFoundError:
+    # Just carry on if rich isn't installed.
+    pass
+
 ##############################################################################
 # Utility function to turn on all logging.
 def davep_log_all():
